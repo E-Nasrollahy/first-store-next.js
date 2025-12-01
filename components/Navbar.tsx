@@ -17,6 +17,11 @@ export const Navbar = () => {
       href: "/stor",
       id: 2,
     },
+    {
+      title: "Dashboard",
+      href: "/dashboard",
+      id: 3,
+    },
   ];
 
   const pathName = usePathname();

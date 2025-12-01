@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Product } from "@/types/ProductType";
 
 interface ICartItemProps {
-  id: number;
+  id: string;
   qty: number;
 }
 

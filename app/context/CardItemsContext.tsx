@@ -27,7 +27,7 @@ export function CardItemsProvider({
     Local.set("cartItems", cardItems);
   }, [cardItems]);
 
-  function handelIncrease(id: number) {
+  function handelIncrease(id: string) {
     setCardItems((prev) => {
       const isExitItem = prev.find((item) => item.id === id) == null;
 
@@ -40,12 +40,12 @@ export function CardItemsProvider({
       }
     });
   }
-  function handelRemoveProduct(id: number) {
+  function handelRemoveProduct(id: string) {
     setCardItems((prev) => {
       return prev.filter((item) => item.id !== id);
     });
   }
-  function handelDecrease(id: number) {
+  function handelDecrease(id: string) {
     setCardItems((prev) => {
       const isLastOne = prev.find((item) => item.id === id)?.qty === 1;
 
@@ -93,7 +93,7 @@ export function useTotalqty(): number {
   ) as CardItemsContextValue;
   return totalqtyCard;
 }
-export function useHandels(): ((id: number) => void)[] {
+export function useHandels(): ((id: string) => void)[] {
   const { handelIncrease, handelDecrease, handelRemoveProduct } = useContext(
     CardItemsContext
   ) as CardItemsContextValue;

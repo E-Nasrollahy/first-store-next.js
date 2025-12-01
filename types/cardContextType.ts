@@ -1,13 +1,13 @@
 export type cardContextType = {
-  id: number,
+  id: string,
   qty: number
 }
 export type CardItemsContextValue = {
   cardItems: cardContextType[],
   setCardItems: React.Dispatch<React.SetStateAction<cardContextType[]>>,
-  handelIncrease: (id: number) => void,
-  handelDecrease: (id: number) => void,
-  handelRemoveProduct: (id: number) => void,
+  handelIncrease: (id: string) => void,
+  handelDecrease: (id: string) => void,
+  handelRemoveProduct: (id: string) => void,
   totalqtyCard: number,
   totalPrice: number,
   setTotalPrice: React.Dispatch<React.SetStateAction<number>>

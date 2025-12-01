@@ -16,7 +16,7 @@ const ShoppingCart = () => {
 
   // Calculate total price
   const totalPrice = cartItems.reduce((sum, item) => {
-    const product = data?.find((p) => p.id == item.id);
+    const product = data?.find((p) => p.id == item.id.toString());
     return sum + (product ? product.price * item.qty : 0);
   }, 0);
   const finalTotal = totalPrice.toFixed(2);
@@ -58,7 +58,7 @@ const ShoppingCart = () => {
         <CartItem key={item.id} {...item} />
       ))}
 
-      <div className="flex justify-center items-center max-w-60 mx-auto">
+      <div className="flex justify-between items-center">
         <div className="shadow border flex flex-col justify-center p-4 rounded-lg bg-zinc-100">
           <p>Total Price : {finalTotal}</p>
           <p>Discount Percentage : %{discountPrice} </p>
@@ -71,6 +71,9 @@ const ShoppingCart = () => {
             />
             <Button onClick={handelDiscount}>Discount Code</Button>
           </div>
+        </div>
+        <div>
+          <Button className="bg-blue-500 text-white">Proceed to Checkout</Button>
         </div>
       </div>
     </div>

@@ -3,7 +3,7 @@
 import { useCardItems, useHandels } from "@/app/context/CardItemsContext";
 import { Button } from "./ui/button";
 
-const NumberStepper = ({ id }: { id: number }) => {
+const NumberStepper = ({ id }: { id: string }) => {
   const [ handelIncrease, handelDecrease , handelRemoveProduct] = useHandels();
   const [cardItems] = useCardItems();
   const qty = cardItems.find((item) => item.id === id)?.qty ?? 0;

@@ -22,7 +22,6 @@ const ProductId = ({ params }: IProductIdProps) => {
   const { data, error, isLoading } = useFeachById(id ?? "");
 
   if (error) {
-    console.log(error);
     return (
       <p className="font-bold text-xl text-red-500">Something went wrong !!! {error.message}</p>
     );
@@ -51,7 +50,7 @@ const ProductId = ({ params }: IProductIdProps) => {
               <span className="border-gray-400 inline-block self-start  p-1 rounded-md bg-gray-300">
                 {data.price} $
               </span>
-              <NumberStepper id={parseInt(id, 10)} />
+              <NumberStepper id={id} />
             </div>
           </div>
         </>
