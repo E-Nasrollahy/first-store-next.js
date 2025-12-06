@@ -34,7 +34,6 @@ const Dashbord = () => {
     event.preventDefault();
     try {
       const created = await postNewProduct(newProduct);
-      console.log("Created product:", created);
       router.push("/stor");
       setNewProduct({ id: "0", title: "", price: 0, image: "", description: "" });
     } catch (err) {

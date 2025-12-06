@@ -2,7 +2,6 @@ import { getAllOrders } from "@/services/OrderServices";
 
 const Order = async () => {
   const data = await getAllOrders();
-  console.log("Orders:", data);
 
   return (
     <div className="flex flex-col gap-4">
@@ -11,7 +10,7 @@ const Order = async () => {
           className="bg-gray-400 rounded-lg p-4 flex flex-col gap-2"
           key={item.id}
         >
-          <p>id : {item.id}</p>
+          <p>order id : {item.id}</p>
           <p>status : {item.status}</p>
           <p>username : {item.username}</p>
           <p>address : {item.address}</p>

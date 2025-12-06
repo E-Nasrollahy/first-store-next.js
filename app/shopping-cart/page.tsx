@@ -23,6 +23,7 @@ const ShoppingCart = () => {
   const [cartItems, setCardItems] = useCardItems();
   const { data, error: errorAllProduct } = useFeachAllProducts();
 
+
   // Calculate total price
   const totalPrice = cartItems.reduce((sum, item) => {
     const product = data?.find((p) => p.id == item.id.toString());
@@ -67,9 +68,9 @@ const ShoppingCart = () => {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-
     setNewOrder({
       ...newOrder,
+      cardItems: cartItems,
       [name]: value,
     });
   };
@@ -81,7 +82,6 @@ const ShoppingCart = () => {
     event.preventDefault();
     try {
       const created = await postNewOrder(newOrder);
-      console.log("Created Order:", created);
       setNewOrder({
         id: "0",
         cardItems: [],
